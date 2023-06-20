@@ -2,6 +2,7 @@
 import express, { json } from "express" 
 import dotenv from "dotenv"
 import route from "../server/routes/routes.js"
+
 import bodyParser from "body-parser"
 import cors from "cors"
 
@@ -24,4 +25,4 @@ app.listen(PORT, () => {
  })
 
 
-app.use("/apiv1" , route )
+app.use("/api/v1" , route )
