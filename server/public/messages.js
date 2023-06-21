@@ -1,14 +1,13 @@
-const errorMessages = { 
-
-  registeredUser: "Kullancı zaten kayıtlı"
-
-}
-
-const messages = {
-  successfulRegistration : "Kayıt işlemi başarılı"
+const appMessages = { 
+  
+  http : {
+    successfulRegistration : "Kayıt işlemi başarılı"
+  }, 
+  error : { 
+    registeredUser: "Kullancı zaten kayıtlı"
+  }, 
 }
 
 export {
-  messages , 
-  errorMessages
+  appMessages
 } 
