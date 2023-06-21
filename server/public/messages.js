@@ -4,7 +4,8 @@ const appMessages = {
     successfulRegistration : "Kayıt işlemi başarılı"
   }, 
   error : { 
-    registeredUser: "Kullancı zaten kayıtlı"
+    registeredUser: "Kullancı zaten kayıtlı",
+    bodyEmpty: "Body is Empty"
   }, 
 }
 
