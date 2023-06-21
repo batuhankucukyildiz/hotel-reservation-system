@@ -1,14 +1,18 @@
 
-import express, { json } from "express" 
+import express from "express" 
 import dotenv from "dotenv"
-import route from "../server/routes/routes.js"
-
 import bodyParser from "body-parser"
 import cors from "cors"
 
+//... 
+import route from "./src/routes/routes.js"
+import databaseConnection from "./config/database.js"
+
 dotenv.config()
+databaseConnection()
 const app = express() 
 const PORT = process.env.PORT 
+const BASE_URL = process.env.BASE_URL
 app.use(cors());
 app.use(bodyParser.json());
 app.use(
@@ -25,4 +29,4 @@ app.listen(PORT, () => {
  })
 
 
-app.use("/api/v1" , route )
+app.use(BASE_URL, route)
