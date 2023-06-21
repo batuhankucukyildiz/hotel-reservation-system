@@ -1,5 +1,5 @@
 import express from "express" 
-import loginUser from "../controller/userController.js";
+import userRegister from "../controller/userController.js";
 import ping from "../controller/ping.js"
 import auth from "../middleware/auth.js";
 const route = express() 
@@ -7,7 +7,7 @@ const route = express()
 
 
 route.get("/ping" , ping)
-route.get("/login" , auth , loginUser) 
+route.get("/login" , auth , userRegister) 
 
 
 export default route; 
