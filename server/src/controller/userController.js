@@ -1,13 +1,13 @@
 
 import bcrypt from "bcrypt"
 import users from "../models/userSchema.js"
-import {appMessages} from "../../public/messages.js"
-import userValidationSchmea from "../utils/validation/validation.js"
+import { appMessages } from "../../public/messages.js"
+import { registerValidationSchmea , loginValidationSchmea } from "../utils/validation/validation.js"
 
 const userRegister =  async (request , response ) => { 
     const person = request.body  
     const email = person.email
-    const isValidate = userValidationSchmea.validate(person)
+    const isValidate = registerValidationSchmea.validate(person)
     if(!isValidate.error){
         if (person.password != undefined && person.email != undefined){ 
             try { 
@@ -35,6 +35,27 @@ const userRegister =  async (request , response ) => {
     }
 }
 
-export default userRegister; 
+const userLogin = async (request ,response) => { 
+    try { 
+        const userDetail = request.body; 
+        const isValidate = loginValidationSchmea.validate(userDetail)
+        if(!isValidate.error){
+            const email = userDetail.email 
+            const existingUser = await users.findOne({email})
+            existingUser ? response.status(200).json(existingUser._id) :  response.status(400).json(appMessages.error.userNotFound)
+        }
+        else{ 
+            response.status(400).json(appMessages.error.missing)
+            }
+        }
+    catch(error) { 
+        console.log(error)
+        }
+    }
+
+export {
+    userRegister, 
+    userLogin 
+} 
 
 

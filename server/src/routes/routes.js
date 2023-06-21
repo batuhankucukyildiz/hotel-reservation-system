@@ -1,5 +1,5 @@
 import express from "express" 
-import userRegister from "../controller/userController.js";
+import {userRegister , userLogin } from "../controller/userController.js";
 import ping from "../controller/ping.js"
 import auth from "../middleware/auth.js";
 
@@ -11,8 +11,9 @@ const route = express()
 
 
 
-route.get("/ping",  ping)
-route.post("/login" , errors, loginLogger , userRegister) 
+route.get("/ping",  ping);
+route.post("/register" , errors, loginLogger , userRegister);
+route.post("/login" , userLogin);
 
 
 export default route; 
