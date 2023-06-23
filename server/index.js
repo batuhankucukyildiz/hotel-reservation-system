@@ -5,14 +5,14 @@ import bodyParser from "body-parser"
 import cors from "cors"
 
 //... 
-import route from "./src/routes/routes.js"
+import userRoute from "./src/routes/userRouter.js"
 import databaseConnection from "./config/database.js"
 
 dotenv.config()
 databaseConnection()
 const app = express() 
 const PORT = process.env.PORT 
-const BASE_URL = process.env.BASE_URL
+const USER_URL = process.env.USER_URL
 app.use(cors());
 app.use(bodyParser.json());
 app.use(
@@ -29,4 +29,4 @@ app.listen(PORT, () => {
  })
 
 
-app.use(BASE_URL, route)
+app.use(USER_URL, userRoute)

@@ -28,7 +28,7 @@ const userRegister =  async (request , response ) => {
       } 
     }
     /**
-    * @param validasyon işlemi true dönerse hata yollanır 
+    * @param validasyon 
     */
     else {
         response.status(400).json(appMessages.error.missing)
@@ -51,11 +51,20 @@ const userLogin = async (request ,response) => {
     catch(error) { 
         console.log(error)
         }
-    }
+    }  
+    
+    const userDelete = async (request ,response) => { 
+        console.log(request.params.id)
+        response.status(200).json("error.missing")
 
-export {
+    }   
+
+
+export const personController = {
     userRegister, 
-    userLogin 
+    userLogin, 
+    userDelete 
 } 
 
+// burda export const personcontroller yapılacak index js de tekrar export edilecek. 
 
