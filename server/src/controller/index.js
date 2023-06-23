@@ -1,4 +1,4 @@
-import { personController } from "./userController";
+import { personController } from "./userController.js";
 
 
 
