@@ -30,3 +30,6 @@ app.listen(PORT, () => {
 
 
 app.use(USER_URL, userRoute)
+
+
+export default app; 

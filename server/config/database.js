@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 import dotenv from "dotenv";
-
+import startChangeStream from "../Stream/changeStream.js";
 dotenv.config();
 
 const databaseUsername = process.env.DB_USERNAME;
@@ -14,6 +14,7 @@ const databaseConnection = async () => {
       useNewUrlParser: true,
     });
     console.log("connection true");
+    startChangeStream();
   } catch (error) {
     console.log("db connection issue", error);
   }

@@ -9,10 +9,9 @@ import errors from "../middleware/error.js";
 
 const userRoute = express() 
 
-
 userRoute.get("/ping",  ping);
 userRoute.post("/register" , errors, loginLogger , controller.personController.userRegister);
-userRoute.post("/login/:id" , controller.personController.userLogin);
+userRoute.post("/login" , controller.personController.userLogin);
 userRoute.delete ("/delete/:id" , controller.personController.userDelete)
 
 export default userRoute ; 
